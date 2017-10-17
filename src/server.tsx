@@ -17,12 +17,12 @@ if (process.env.NODE_ENV === 'dev') {
 
   server.use(
     require('webpack-dev-middleware')(compiler, {
-      noInfo: true,
       publicPath: webpackConfig.output.publicPath
     })
   );
 
   server.use(require('webpack-hot-middleware')(compiler));
+  server.use(express.static(path.resolve(projectRootPath, 'src')));
 } else if (process.env.NODE_ENV === 'prod') {
   server.use(express.static(path.resolve(projectRootPath, 'dist')));
 }
