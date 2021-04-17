@@ -1,14 +1,37 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
     "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "downlevelIteration": true,
+    "noEmitOnError": true,
+    "strict": true,
+    "declaration": true,
+    "inlineSourceMap": true,
+    "experimentalDecorators": true,
+    "target": "es2018",
+    "lib": [
+      "es2018"
+    ],
+    "rootDirs": [
+      "src"
+    ],
     "allowJs": true,
-    "jsx": "react",
-    "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
   },
-  "exclude": ["node_modules"],
-  "include": ["./src/**/*"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
