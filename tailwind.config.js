@@ -1,5 +1,10 @@
 module.exports = {
-  purge: ['.src/**/*.{js,ts,jsx,tsx}'],
+  purge: {
+    content: ['./src/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      safelist: [/text-.+/, 'italic', 'underline', 'font-bold'],
+    },
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
@@ -8,4 +13,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
