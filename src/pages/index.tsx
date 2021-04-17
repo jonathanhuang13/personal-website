@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
 interface LetterAttributes {
@@ -17,6 +18,10 @@ const letterAttributes: LetterAttributes[] = [
 
 const HAPPY = ['H', 'A', 'P', 'P', 'Y'];
 const BIRTHDAY = ['B', 'I', 'R', 'T', 'H', 'D', 'A', 'Y', '!', '!'];
+
+export const getServerSideProps: GetServerSideProps = async (_context) => {
+  return { props: {} };
+};
 
 export default function Home(): JSX.Element {
   return (
