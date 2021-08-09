@@ -3,10 +3,11 @@ import Head from 'next/head';
 
 export const getStaticProps: GetStaticProps<SchoolProps> = async (context) => {
   console.log(context);
-  
+
   return {
     props: {
-      schoolSlug: (context.params?.host ?? '') as string,
+      host: (context.params?.host ?? '') as string,
+      schoolSlug: (context.params?.schoolSlug ?? '') as string,
     },
   };
 };
@@ -20,9 +21,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 interface SchoolProps {
   schoolSlug: string;
+  host: string;
 }
 
 export default function School(props: SchoolProps): JSX.Element {
+  console.log('props: ', props);
   return (
     <div className="flex flex-col justify-center h-screen">
       <Head>

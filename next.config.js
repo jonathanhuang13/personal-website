@@ -5,15 +5,14 @@ module.exports = {
         {
           source: '/',
           has: [{ type: 'host', value: '(?<schoolSlug>.*)' }],
-          destination: '/:schoolSlug'
+          destination: '/:schoolSlug',
         },
         {
           source: '/:path*',
           has: [{ type: 'host', value: '(?<schoolSlug>.*)' }],
-          destination: '/:schoolSlug/:path*'
-        }
-      ]
-    }
-
+          destination: '/:schoolSlug/:path*',
+        },
+      ],
+    };
   },
-}
+};
