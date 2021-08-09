@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps<SchoolProps> = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [{ params: { schoolSlug: 'school1' } }, { params: { schoolSlug: 'school2' } }],
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
