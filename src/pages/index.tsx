@@ -1,7 +1,8 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-export const getServerSideProps: GetServerSideProps = async (_context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  console.log('home params: ', context.params);
   return { props: {} };
 };
 

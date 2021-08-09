@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 
 export const getStaticProps: GetStaticProps<SchoolProps> = async (context) => {
-  console.log(context);
+  console.log('schoolSlug page params: ', context.params);
 
   return {
     props: {

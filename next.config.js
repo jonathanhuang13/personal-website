@@ -7,10 +7,14 @@ module.exports = {
           has: [{ type: 'host', value: '(?<schoolSlug>.*)' }],
           destination: '/schoolSlug/:schoolSlug',
         },
+        // {
+        //   source: '/:path*',
+        //   has: [{ type: 'host', value: '(?<schoolSlug>.*)' }],
+        //   destination: '/schoolSlug/:schoolSlug/:path*',
+        // },
         {
-          source: '/:path*',
-          has: [{ type: 'host', value: '(?<schoolSlug>.*)' }],
-          destination: '/schoolSlug/:schoolSlug/:path*',
+          source: '/hello',
+          destination: '/schoolSlug/school1',
         },
       ],
     };
