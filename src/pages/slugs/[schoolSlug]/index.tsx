@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 export const getStaticProps: GetStaticProps<SchoolProps> = async (context) => {
@@ -25,7 +26,11 @@ interface SchoolProps {
 }
 
 export default function School(props: SchoolProps): JSX.Element {
+  const router = useRouter();
+
   console.log('school props: ', props);
+  console.log('router pathname: ', router.pathname);
+  console.log('router query: ', router.query);
   return (
     <div className="flex flex-col justify-center h-screen">
       <Head>

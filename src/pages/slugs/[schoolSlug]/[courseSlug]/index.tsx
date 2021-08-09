@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-export const getStaticProps: GetStaticProps<CourseProps> = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   console.log('courseSlug page params: ', context.params);
 
   return {
