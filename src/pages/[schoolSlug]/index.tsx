@@ -25,7 +25,7 @@ interface SchoolProps {
 }
 
 export default function School(props: SchoolProps): JSX.Element {
-  console.log('props: ', props);
+  console.log('school props: ', props);
   return (
     <div className="flex flex-col justify-center h-screen">
       <Head>
