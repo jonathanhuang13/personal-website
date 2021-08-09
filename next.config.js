@@ -4,7 +4,7 @@ module.exports = {
       beforeFiles: [
         {
           source: '/',
-          has: [{ type: 'host', value: '(?<schoolSlug>.*)' }],
+          has: [{ type: 'host', value: '(?<schoolSlug>.*).jonathanlhuang.com' }],
           destination: '/schoolSlug/:schoolSlug',
         },
       ],
