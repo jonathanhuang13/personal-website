@@ -5,7 +5,7 @@ module.exports = {
         {
           source: '/',
           has: [{ type: 'host', value: '(?!www)(?<schoolSlug>.*).((jonathanlhuang.com)|(localhost.*))' }],
-          destination: '/schoolSlug/:schoolSlug',
+          destination: '/:schoolSlug',
         },
       ],
       afterFiles: [
