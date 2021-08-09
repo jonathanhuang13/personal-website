@@ -1,7 +1,7 @@
 module.exports = {
   async rewrites() {
     return {
-      beforeFiles: [
+      afterFiles: [
         {
           source: '/',
           has: [{ type: 'host', value: '(?<schoolSlug>.*)' }],
