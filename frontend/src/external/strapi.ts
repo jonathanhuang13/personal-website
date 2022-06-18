@@ -50,10 +50,10 @@ type StrapiFilterKey = `$${FilterKey}`;
 
 type Filter = { [key in StrapiFilterKey]?: string | string[] };
 
-export interface StrapiAPIParams {
+export interface StrapiAPIParams<T> {
   sort?: 'string' | string[];
   filters?: {
-    [attribute: string]: Filter;
+    [attribute in keyof (T extends any[] ? T[number] : T)]?: Filter;
   };
   fields?: string[];
   populate?: '*' | string[];
@@ -67,7 +67,7 @@ export interface StrapiAPIParams {
 
 export async function fetchStrapi<T>(
   path: string,
-  urlParamsObject: StrapiAPIParams = {},
+  urlParamsObject: StrapiAPIParams<T> = {},
 ): Promise<T extends any[] ? StrapiEntriesResponse<T[number]> : StrapiEntryResponse<T>> {
   const queryString = qs.stringify(urlParamsObject);
   const requestUrl = `${STRAPI_BASE_URL}/api${path}${queryString ? `?${queryString}` : ''}`;
