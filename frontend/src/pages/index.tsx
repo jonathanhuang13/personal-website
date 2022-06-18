@@ -11,7 +11,6 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Jonathan Huang</title>
       </Head>
-      Under construction
     </div>
   );
 }
