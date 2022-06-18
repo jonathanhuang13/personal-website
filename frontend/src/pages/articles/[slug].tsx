@@ -23,7 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const article = await getArticle(params?.slug as string);
-  return { props: { article: article.data.attributes } };
+  return { props: { article: article.data.attributes }, revalidate: 10 };
 };
 
 export default ArticlePage;
