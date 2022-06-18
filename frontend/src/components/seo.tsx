@@ -1,17 +1,21 @@
 import Head from 'next/head';
 
+import { getStrapiMedia } from '../external/strapi';
+
 interface Props {
   title: string;
   description: string;
+  faviconURL?: string;
   shareImage?: string;
   keywords: string;
   preventIndexing: boolean;
 }
 
-const SEO = (props: Props): JSX.Element => {
+export default function SEO(props: Props): JSX.Element {
   return (
     <Head>
       <title>{props.title}</title>
+      <link rel="shortcut icon" href={props.faviconURL ? getStrapiMedia(props.faviconURL) : ''} />
       <meta name="description" content={props.description} key="description" />
       <meta name="keywords" content="{keywords}" />
       <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
@@ -27,6 +31,4 @@ const SEO = (props: Props): JSX.Element => {
       )}
     </Head>
   );
-};
-
-export default SEO;
+}

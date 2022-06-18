@@ -80,3 +80,7 @@ export async function fetchStrapi<T>(
     throw new Error(`An error occured please try again`);
   }
 }
+
+export function getStrapiMedia(mediaURL: string): string {
+  return mediaURL.startsWith('/') ? `${STRAPI_BASE_URL}${mediaURL}` : mediaURL;
+}

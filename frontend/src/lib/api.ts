@@ -1,18 +1,39 @@
 import { fetchStrapi, StrapiEntryResponse } from '../external/strapi';
 
+interface SEO {
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string;
+  preventIndexing: boolean;
+}
+
+interface Image {
+  name: string;
+  alternativeText: string;
+  mime: string;
+  url: string;
+}
+
+type StrapiImage = StrapiEntryResponse<Image>;
+
+export interface GlobalData {
+  favicon: StrapiImage;
+  seo: SEO;
+}
+
+export async function getGlobalData(): Promise<StrapiEntryResponse<GlobalData>> {
+  const response = await fetchStrapi<GlobalData>('/global', { populate: '*' });
+  return response;
+}
+
+// Articles
+
 export interface Article {
   title: string;
   slug: string;
   content: string;
   publishedAt: string;
   seo: SEO;
-}
-
-interface SEO {
-  metaTitle: string;
-  metaDescription: string;
-  keywords: string;
-  preventIndexing: boolean;
 }
 
 export async function getArticleSlugs(): Promise<string[]> {

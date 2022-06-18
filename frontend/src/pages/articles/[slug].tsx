@@ -1,20 +1,23 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Article, getArticle, getArticleSlugs } from '../../lib/api';
+import { Article, getArticle, getArticleSlugs, getGlobalData, GlobalData } from '../../lib/api';
 
 import SEO from '../../components/seo';
 
 interface Props {
   article: Article;
+  globalData: GlobalData;
 }
 
-const ArticlePage = ({ article }: Props): JSX.Element => {
+export default function ({ article, globalData }: Props): JSX.Element {
   const { seo } = article;
+
   return (
     <>
       <SEO
         title={seo.metaTitle}
         description={seo.metaDescription}
+        faviconURL={globalData.favicon.data.attributes.url}
         keywords={seo.keywords}
         preventIndexing={seo.preventIndexing}
       />
@@ -24,7 +27,7 @@ const ArticlePage = ({ article }: Props): JSX.Element => {
       </div>
     </>
   );
-};
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const articleSlugs = await getArticleSlugs();
@@ -35,8 +38,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const article = await getArticle(params?.slug as string);
-  return { props: { article: article.data.attributes }, revalidate: 10 };
-};
+  const [article, globalData] = await Promise.all([getArticle(params?.slug as string), getGlobalData()]);
 
-export default ArticlePage;
+  return {
+    props: { article: article.data.attributes, globalData: globalData.data.attributes },
+    revalidate: 10,
+  };
+};
