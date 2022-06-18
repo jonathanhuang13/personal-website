@@ -1,15 +1,28 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+
 import { Article, getArticle, getArticleSlugs } from '../../lib/api';
+
+import SEO from '../../components/seo';
 
 interface Props {
   article: Article;
 }
 
 const ArticlePage = ({ article }: Props): JSX.Element => {
+  const { seo } = article;
   return (
-    <div>
-      <h1>{article.title}</h1>
-    </div>
+    <>
+      <SEO
+        title={seo.metaTitle}
+        description={seo.metaDescription}
+        keywords={seo.keywords}
+        preventIndexing={seo.preventIndexing}
+      />
+
+      <div>
+        <h1>{article.title}</h1>
+      </div>
+    </>
   );
 };
 

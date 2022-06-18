@@ -1,0 +1,27 @@
+{
+    "collectionName": "components_shared_seos",
+    "info": {
+        "displayName": "seo",
+        "icon": "globe"
+    },
+    "options": {},
+    "attributes": {
+        "metaTitle": {
+            "type": "string",
+            "maxLength": 60,
+            "required": true
+        },
+        "metaDescription": {
+            "type": "string",
+            "maxLength": 155
+        },
+        "keywords": {
+            "type": "string"
+        },
+        "preventIndexing": {
+            "type": "boolean",
+            "default": false,
+            "required": true
+        }
+    }
+}

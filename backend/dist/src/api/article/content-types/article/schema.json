@@ -18,7 +18,8 @@
         },
         "title": {
             "type": "string",
-            "required": true
+            "required": true,
+            "maxLength": 60
         },
         "categories": {
             "type": "relation",
@@ -29,6 +30,12 @@
         "slug": {
             "type": "uid",
             "required": true
+        },
+        "seo": {
+            "displayName": "seo",
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo"
         }
     }
 }
