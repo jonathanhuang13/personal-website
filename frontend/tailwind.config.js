@@ -1,10 +1,5 @@
 module.exports = {
-  purge: {
-    content: ['./src/**/*.{js,ts,jsx,tsx}'],
-    options: {
-      safelist: [/text-.+/, 'italic', 'underline', 'font-bold'],
-    },
-  },
+  content: ['./src/**/*.{html,js,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
@@ -12,5 +7,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
