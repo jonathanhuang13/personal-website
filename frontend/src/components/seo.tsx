@@ -5,7 +5,7 @@ import { getStrapiMedia } from '../external/strapi';
 interface Props {
   title: string;
   description: string;
-  faviconURL?: string;
+  faviconURL: string;
   shareImage?: string;
   keywords: string;
   preventIndexing: boolean;
@@ -15,7 +15,7 @@ export default function SEO(props: Props): JSX.Element {
   return (
     <Head>
       <title>{props.title}</title>
-      <link rel="shortcut icon" href={props.faviconURL ? getStrapiMedia(props.faviconURL) : ''} />
+      <link rel="shortcut icon" href={getStrapiMedia(props.faviconURL)} />
       <meta name="description" content={props.description} key="description" />
       <meta name="keywords" content="{keywords}" />
       <meta name="twitter:card" content="summary_large_image" key="twitter:card" />

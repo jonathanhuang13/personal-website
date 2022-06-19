@@ -2,7 +2,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: 'default',
-    domains: ['localhost'],
+    domains: ['localhost', 'red-cloud-4553.fly.dev'],
   },
 };
 

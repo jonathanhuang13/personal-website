@@ -1,15 +1,24 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+
+import { getStrapiMedia } from '../external/strapi';
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanhuang1/';
 const GITHUB_URL = 'https://github.com/jonathanhuang13';
 
-export default function Nav(): JSX.Element {
+interface Props {
+  logoURL: string;
+}
+
+export default function Nav(props: Props): JSX.Element {
   return (
     <nav className="flex justify-between mb-4 md:mb-8 dark:text-gray-100">
       <Link href="/">
-        <button className="text-lg md:text-2xl">Jonathan Huang</button>
+        <button className="h-6 w-6 md:h-8 md:w-8 relative">
+          <Image src={getStrapiMedia(props.logoURL)} layout="fill" />
+        </button>
       </Link>
 
       {/* Mobile Icons */}
