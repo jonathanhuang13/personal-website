@@ -4,7 +4,7 @@ export default function Document(): JSX.Element {
   return (
     <Html>
       <Head />
-      <body className="dark:bg-slate-900 text-black">
+      <body className="dark:bg-slate-900 text-black mx-4">
         <Main />
         <NextScript />
       </body>
