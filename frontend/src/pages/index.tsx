@@ -26,7 +26,7 @@ export default function Home(props: Props): JSX.Element {
       <div className="flex flex-col items-center justify-center h-80 md:h-96 dark:text-gray-100">
         <span className="text-4xl md:text-6xl font-semibold mb-4 md:mb-6">
           👋 Hi, I'm{' '}
-          <span className="text-slate-400">
+          <span className="inline-block text-slate-400 w-40 md:w-64">
             <Typewriter
               words={['', 'Jonathan']}
               delaySpeed={500}
