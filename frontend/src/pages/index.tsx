@@ -25,8 +25,9 @@ export default function Home(props: Props): JSX.Element {
           👋 Hi, I'm{' '}
           <TypeAnimation className="text-slate-400" cursor sequence={['', 500, 'Jonathan']} wrapper="span" />
         </span>
-        <span className="text-2xl">
-          ...founding engineer at Maven, interested in education, architecture, and programming.
+        <span className="text-2xl max-w-prose text-center">
+          I'm a founding engineer at Maven, and I'm interested in education 📚, architecture 🏠, and
+          programming 🧑‍💻.
         </span>
       </div>
     </Layout>
