@@ -19,7 +19,12 @@ export default function Home(props: Props): JSX.Element {
       keywords={seo.keywords}
       preventIndexing={seo.preventIndexing}
     >
-      <div>Hello</div>
+      <div className="flex flex-col items-center justify-center h-96">
+        <span className="text-6xl font-semibold mb-6">👋 Hi, I'm Jonathan</span>
+        <span className="text-2xl">
+          ...founding engineer at Maven, interested in education, architecture, and programming.
+        </span>
+      </div>
     </Layout>
   );
 }
