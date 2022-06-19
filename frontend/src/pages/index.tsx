@@ -1,9 +1,10 @@
 import { GetStaticProps } from 'next';
-import TypeAnimation from 'react-type-animation';
+import { Typewriter, Cursor } from 'react-simple-typewriter';
 
 import { getGlobalData, GlobalData } from '../lib/api';
 
 import Layout from '../components/layout';
+import { useState } from 'react';
 
 interface Props {
   globalData: GlobalData;
@@ -11,6 +12,8 @@ interface Props {
 
 export default function Home(props: Props): JSX.Element {
   const { seo } = props.globalData;
+
+  const [typewriterDone, setTypewriterDone] = useState(false);
 
   return (
     <Layout
@@ -23,7 +26,15 @@ export default function Home(props: Props): JSX.Element {
       <div className="flex flex-col items-center justify-center h-96 dark:text-gray-100">
         <span className="text-6xl font-semibold mb-6">
           👋 Hi, I'm{' '}
-          <TypeAnimation className="text-slate-400" cursor sequence={['', 500, 'Jonathan']} wrapper="span" />
+          <span className="text-slate-400">
+            <Typewriter
+              words={['', 'Jonathan']}
+              delaySpeed={500}
+              typeSpeed={90}
+              onLoopDone={() => setTypewriterDone(true)}
+            />
+            {typewriterDone ? <Cursor /> : '|'}
+          </span>
         </span>
         <span className="text-2xl max-w-prose text-center">
           I'm a founding engineer at Maven, and I'm interested in education 📚, architecture 🏠, and
@@ -36,5 +47,6 @@ export default function Home(props: Props): JSX.Element {
 
 export const getStaticProps: GetStaticProps = async () => {
   const globalData = await getGlobalData();
+  console.log(globalData);
   return { props: { globalData: globalData.data.attributes }, revalidate: 10 };
 };
