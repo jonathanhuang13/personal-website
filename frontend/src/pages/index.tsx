@@ -33,7 +33,7 @@ export default function Home(props: Props): JSX.Element {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async () => {
   const globalData = await getGlobalData();
   return { props: { globalData: globalData.data.attributes }, revalidate: 10 };
 };
