@@ -7,7 +7,7 @@ const GITHUB_URL = 'https://github.com/jonathanhuang13';
 
 export default function Nav(): JSX.Element {
   return (
-    <nav className="flex justify-between mb-8">
+    <nav className="flex justify-between mb-8 dark:text-gray-100">
       <Link href="/">
         <button className="text-2xl">Jonathan Huang</button>
       </Link>

@@ -20,7 +20,7 @@ export default function Home(props: Props): JSX.Element {
       keywords={seo.keywords}
       preventIndexing={seo.preventIndexing}
     >
-      <div className="flex flex-col items-center justify-center h-96">
+      <div className="flex flex-col items-center justify-center h-96 dark:text-gray-100">
         <span className="text-6xl font-semibold mb-6">
           👋 Hi, I'm{' '}
           <TypeAnimation className="text-slate-400" cursor sequence={['', 500, 'Jonathan']} wrapper="span" />
