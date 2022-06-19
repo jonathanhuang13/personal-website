@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import TypeAnimation from 'react-type-animation';
 
 import { getGlobalData, GlobalData } from '../lib/api';
 
@@ -20,7 +21,10 @@ export default function Home(props: Props): JSX.Element {
       preventIndexing={seo.preventIndexing}
     >
       <div className="flex flex-col items-center justify-center h-96">
-        <span className="text-6xl font-semibold mb-6">👋 Hi, I'm Jonathan</span>
+        <span className="text-6xl font-semibold mb-6">
+          👋 Hi, I'm{' '}
+          <TypeAnimation className="text-slate-400" cursor sequence={['', 500, 'Jonathan']} wrapper="span" />
+        </span>
         <span className="text-2xl">
           ...founding engineer at Maven, interested in education, architecture, and programming.
         </span>
