@@ -8,7 +8,7 @@ export default function Document(): JSX.Element {
         <Script
           id="counter-dev"
           dangerouslySetInnerHTML={{
-            __html: `<script>if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"jonathanhuang",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");</script>`,
+            __html: `if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"jonathanhuang",utcoffset:"-7"}))};sessionStorage.setItem("_swa","1");`,
           }}
         />
       </Head>
