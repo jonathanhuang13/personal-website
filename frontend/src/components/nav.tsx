@@ -24,20 +24,20 @@ export default function Nav(props: Props): JSX.Element {
       {/* Mobile Icons */}
       <div className="md:hidden">
         <a href={LINKEDIN_URL} target="_blank">
-          <FontAwesomeIcon className="mr-4" icon={faLinkedinIn} />
+          <FontAwesomeIcon className="mr-4 dark:text-white" icon={faLinkedinIn} />
         </a>
         <a href={GITHUB_URL} target="_blank">
-          <FontAwesomeIcon icon={faGithub} />
+          <FontAwesomeIcon className="dark:text-white" icon={faGithub} />
         </a>
       </div>
 
       {/* Desktop Icons */}
       <div className="hidden md:block">
         <a href={LINKEDIN_URL} target="_blank">
-          <FontAwesomeIcon className="mr-4" icon={faLinkedinIn} size="lg" />
+          <FontAwesomeIcon className="mr-4 dark:text-white" icon={faLinkedinIn} size="lg" />
         </a>
         <a href={GITHUB_URL} target="_blank">
-          <FontAwesomeIcon icon={faGithub} size="lg" />
+          <FontAwesomeIcon className="dark:text-white" icon={faGithub} size="lg" />
         </a>
       </div>
     </nav>
