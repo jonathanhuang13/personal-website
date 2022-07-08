@@ -41,7 +41,7 @@ export default function Home(props: Props): JSX.Element {
           <a className="text-sky-600" href="https://maven.com" target="_blank">
             Maven
           </a>
-          , and I'm interested in education 📚, architecture 🏠, and programming 🧑‍💻.
+          , and I'm interested in education 📚, architecture 🏠, and software engineering🧑‍💻.
         </span>
       </div>
     </Layout>

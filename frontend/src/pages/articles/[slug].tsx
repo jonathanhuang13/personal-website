@@ -7,6 +7,7 @@ import { SEO as SEOMeta, getArticle, getArticleSlugs, getGlobalData, GlobalData 
 
 import TestMdx from '../../components/mdx/test-mdx';
 import Layout from '../../components/layout';
+import Subscribe from '../../components/subscribe';
 
 const components = { TestMdx };
 
@@ -26,10 +27,12 @@ export default function ({ title, mdxContent, seoMeta, globalData }: Props): JSX
       keywords={seoMeta.keywords}
       preventIndexing={seoMeta.preventIndexing}
     >
-      <article className="mx-8 dark:text-gray-200">
+      <article className="dark:text-gray-200">
         <h1 className="dark:text-gray-200">{title}</h1>
         <MDXRemote {...mdxContent} components={components}></MDXRemote>
       </article>
+
+      <Subscribe />
     </Layout>
   );
 }

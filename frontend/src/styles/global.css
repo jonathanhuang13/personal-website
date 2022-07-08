@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ck-form {
+  @apply flex;
+}
+
+.ck-form input {
+  @apply p-1;
+  @apply border;
+  @apply border-gray-300;
+  @apply rounded-md;
+}
+
+.ck-form button {
+  @apply bg-slate-400 text-white;
+  @apply py-1
+}
