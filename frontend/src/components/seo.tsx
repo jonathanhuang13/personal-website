@@ -1,7 +1,5 @@
 import Head from 'next/head';
 
-import { getStrapiMedia } from '../external/strapi';
-
 interface Props {
   title: string;
   description: string;
@@ -15,7 +13,7 @@ export default function SEO(props: Props): JSX.Element {
   return (
     <Head>
       <title>{props.title}</title>
-      <link rel="shortcut icon" href={getStrapiMedia(props.faviconURL)} />
+      <link rel="shortcut icon" href={'/images/logo.svg'} />
       <meta name="description" content={props.description} key="description" />
       <meta name="keywords" content="{keywords}" />
       <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
