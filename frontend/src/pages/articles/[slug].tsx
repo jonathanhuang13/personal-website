@@ -26,8 +26,8 @@ export default function ({ title, mdxContent, seoMeta, globalData }: Props): JSX
       keywords={seoMeta.keywords}
       preventIndexing={seoMeta.preventIndexing}
     >
-      <article className="prose mx-auto">
-        <h1>{title}</h1>
+      <article className="mx-8 dark:text-gray-200">
+        <h1 className="dark:text-gray-200">{title}</h1>
         <MDXRemote {...mdxContent} components={components}></MDXRemote>
       </article>
     </Layout>

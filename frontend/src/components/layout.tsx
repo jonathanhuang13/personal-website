@@ -18,7 +18,7 @@ export default function Layout(props: Props): JSX.Element {
   return (
     <>
       <SEO {...props} />
-      <div className="max-w-5xl m-auto my-6 md:my-12 prose md:prose-lg">
+      <div className="max-w-4xl mx-auto my-6 md:my-12 prose md:prose-lg">
         <Nav logoURL={props.faviconURL} />
         {props.children}
       </div>
