@@ -9,6 +9,7 @@ import { SEO as SEOMeta, getArticle, getArticleSlugs, getGlobalData, GlobalData 
 import TestMdx from '../../components/mdx/test-mdx';
 import Layout from '../../components/layout';
 import Subscribe from '../../components/subscribe';
+import { getStrapiMedia } from '../../external/strapi';
 
 const components = { TestMdx };
 
@@ -21,13 +22,15 @@ interface Props {
 }
 
 export default function ({ title, mdxContent, seoMeta, globalData, readingTime }: Props): JSX.Element {
+  const { socialShareImage } = globalData;
+
   return (
     <Layout
       title={seoMeta.metaTitle}
       description={seoMeta.metaDescription}
-      faviconURL={globalData.favicon.data.attributes.url}
       keywords={seoMeta.keywords}
       preventIndexing={seoMeta.preventIndexing}
+      socialShareImage={getStrapiMedia(socialShareImage.data.attributes.url)}
     >
       <article className="mb-20">
         <div className="text-center">

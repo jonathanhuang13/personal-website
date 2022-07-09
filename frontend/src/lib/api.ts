@@ -17,7 +17,7 @@ interface Image {
 type StrapiImage = StrapiEntryResponse<Image>;
 
 export interface GlobalData {
-  favicon: StrapiImage;
+  socialShareImage: StrapiImage;
   seo: SEO;
 }
 

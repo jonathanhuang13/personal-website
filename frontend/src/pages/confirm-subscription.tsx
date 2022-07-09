@@ -3,21 +3,22 @@ import { GetStaticProps } from 'next';
 import { getGlobalData, GlobalData } from '../lib/api';
 
 import Layout from '../components/layout';
+import { getStrapiMedia } from '../external/strapi';
 
 interface Props {
   globalData: GlobalData;
 }
 
 export default function ConfirmedSubscription(props: Props): JSX.Element {
-  const { seo } = props.globalData;
+  const { seo, socialShareImage } = props.globalData;
 
   return (
     <Layout
       title={seo.metaTitle}
       description={seo.metaDescription}
-      faviconURL={props.globalData.favicon.data.attributes.url}
       keywords={seo.keywords}
       preventIndexing={seo.preventIndexing}
+      socialShareImage={getStrapiMedia(socialShareImage.data.attributes.url)}
     >
       <main className="flex flex-col items-center justify-center h-80 md:h-96 max-w-prose mx-auto text-center">
         <h1>Subscription confirmed! 🙏</h1>

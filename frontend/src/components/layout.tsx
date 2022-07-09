@@ -6,8 +6,7 @@ import SEO from './seo';
 interface Props {
   title: string;
   description: string;
-  faviconURL: string;
-  shareImage?: string;
+  socialShareImage: string;
   keywords: string;
   preventIndexing: boolean;
 

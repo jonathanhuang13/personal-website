@@ -5,13 +5,14 @@ import { Typewriter, Cursor } from 'react-simple-typewriter';
 import { getGlobalData, GlobalData } from '../lib/api';
 
 import Layout from '../components/layout';
+import { getStrapiMedia } from '../external/strapi';
 
 interface Props {
   globalData: GlobalData;
 }
 
 export default function Home(props: Props): JSX.Element {
-  const { seo } = props.globalData;
+  const { seo, socialShareImage } = props.globalData;
 
   const [typewriterDone, setTypewriterDone] = useState(false);
 
@@ -19,9 +20,9 @@ export default function Home(props: Props): JSX.Element {
     <Layout
       title={seo.metaTitle}
       description={seo.metaDescription}
-      faviconURL={props.globalData.favicon.data.attributes.url}
       keywords={seo.keywords}
       preventIndexing={seo.preventIndexing}
+      socialShareImage={getStrapiMedia(socialShareImage.data.attributes.url)}
     >
       <div className="flex flex-col items-center justify-center h-80 md:h-96">
         <span className="text-4xl md:text-6xl font-semibold mb-4 md:mb-6">

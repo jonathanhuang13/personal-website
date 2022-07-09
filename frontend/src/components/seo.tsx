@@ -3,8 +3,7 @@ import Head from 'next/head';
 interface Props {
   title: string;
   description: string;
-  faviconURL: string;
-  shareImage?: string;
+  socialShareImage?: string;
   keywords: string;
   preventIndexing: boolean;
 }
@@ -19,7 +18,7 @@ export default function SEO(props: Props): JSX.Element {
       <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
       <meta property="og:title" content={props.title} key="og:title" />
       <meta property="og:description" content={props.description} key="og:description" />
-      <meta property="og:image" content={props.shareImage} key="og:image" />
+      <meta property="og:image" content={props.socialShareImage} key="og:image" />
 
       {props.preventIndexing && (
         <>
