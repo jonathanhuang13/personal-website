@@ -40,7 +40,7 @@ export default function ConvertKitForm({
         success: 'Thanks for subscribing! 🙏',
         error: 'Sorry, please try again',
       })
-      .catch((e) => {});
+      .catch((_e) => {});
 
     try {
       await subscribePromise;
