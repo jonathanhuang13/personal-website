@@ -22,13 +22,11 @@ export default function ConvertKitForm({
 }: Props): JSX.Element {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-
-    // const data = new FormData();
-    // data.append('fields[first_name]', firstName);
-    // data.append('email_address', email);
+    setIsSubmitDisabled(true);
 
     const subscribePromise = fetch(`https://app.convertkit.com/forms/${formId}/subscriptions`, {
       method: 'POST',
@@ -44,10 +42,13 @@ export default function ConvertKitForm({
       })
       .catch((e) => {});
 
-    await subscribePromise;
-
-    // setFirstName('');
-    // setEmail('')
+    try {
+      await subscribePromise;
+      setFirstName('');
+      setEmail('');
+    } finally {
+      setIsSubmitDisabled(false);
+    }
   };
 
   return (
@@ -69,7 +70,8 @@ export default function ConvertKitForm({
         onChange={(e) => setEmail(e.target.value)}
       />
       <button
-        className="bg-slate-700 dark:bg-slate-900 text-white dark:text-gray-300 py-1 px-6 rounded-md"
+        className="py-1 px-6 rounded-md bg-slate-700 dark:bg-slate-900 text-white dark:text-gray-300 disabled:bg-slate-500 dark:disabled:bg-slate-600"
+        disabled={isSubmitDisabled}
         type="submit"
       >
         {submitText}
