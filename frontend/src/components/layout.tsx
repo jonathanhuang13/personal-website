@@ -18,9 +18,9 @@ export default function Layout(props: Props): JSX.Element {
   return (
     <>
       <SEO {...props} />
-      <div className="max-w-4xl mx-auto my-6 md:my-12 prose md:prose-lg">
+      <div className="max-w-4xl mx-auto my-6 md:my-12 prose md:prose-lg dark:prose-invert">
         <Nav />
-        {props.children}
+        <main className="mx-8">{props.children}</main>
       </div>
     </>
   );
