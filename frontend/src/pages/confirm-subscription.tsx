@@ -19,12 +19,12 @@ export default function ConfirmedSubscription(props: Props): JSX.Element {
       keywords={seo.keywords}
       preventIndexing={seo.preventIndexing}
     >
-      <main className="flex flex-col items-center justify-center h-80 md:h-96">
-        <h1>Subscription confirmed!</h1>
-        <p className="text-center">
-          Boom! You're officially confirmed and on the list. Expect some great emails headed your way very
-          soon.
-        </p>
+      <main className="flex flex-col items-center justify-center h-80 md:h-96 max-w-prose mx-auto">
+        <h1>Subscription confirmed! 🙏</h1>
+        <span className="text-center">
+          You're officially on the list, thanks for joining. Just note that I only plan to write when I think
+          there's something worth writing about so don't expect weekly emails.
+        </span>
       </main>
     </Layout>
   );
