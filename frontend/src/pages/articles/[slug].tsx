@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import remarkGfm from 'remark-gfm';
+import getReadingTime, { ReadTimeResults } from 'reading-time';
 
 import { SEO as SEOMeta, getArticle, getArticleSlugs, getGlobalData, GlobalData } from '../../lib/api';
 
@@ -16,9 +17,10 @@ interface Props {
   mdxContent: MDXRemoteSerializeResult;
   seoMeta: SEOMeta;
   globalData: GlobalData;
+  readingTime: ReadTimeResults;
 }
 
-export default function ({ title, mdxContent, seoMeta, globalData }: Props): JSX.Element {
+export default function ({ title, mdxContent, seoMeta, globalData, readingTime }: Props): JSX.Element {
   return (
     <Layout
       title={seoMeta.metaTitle}
@@ -28,7 +30,10 @@ export default function ({ title, mdxContent, seoMeta, globalData }: Props): JSX
       preventIndexing={seoMeta.preventIndexing}
     >
       <article className="mb-20">
-        <h1 className="text-center">{title}</h1>
+        <div className="text-center">
+          <div className="text-5xl font-bold mb-4">{title}</div>
+          <div className="italic">{readingTime.text}</div>
+        </div>
         <MDXRemote {...mdxContent} components={components}></MDXRemote>
       </article>
 
@@ -49,10 +54,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const [article, globalData] = await Promise.all([getArticle(params?.slug as string), getGlobalData()]);
   const { title, content, seo } = article.data.attributes;
 
+  const readingTime = getReadingTime(content);
   const mdxContent = await serialize(content, { mdxOptions: { remarkPlugins: [remarkGfm] } });
 
   return {
-    props: { title, mdxContent, seoMeta: seo, globalData: globalData.data.attributes },
+    props: { title, mdxContent, seoMeta: seo, globalData: globalData.data.attributes, readingTime },
     revalidate: 10,
   };
 };
