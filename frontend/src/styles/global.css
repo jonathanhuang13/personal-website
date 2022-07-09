@@ -2,15 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.ck-form {
-  @apply flex justify-center;
-}
-
-.ck-form input {
-  @apply py-1 px-2 border border-gray-300 rounded-md mr-2;
-}
-
-.ck-form button {
-  @apply bg-slate-500 text-white;
-  @apply py-1 px-6 rounded-md;
-}
