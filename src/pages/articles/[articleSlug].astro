@@ -1,0 +1,41 @@
+---
+import { getCollection, CollectionEntry } from 'astro:content';
+import getReadingTime, { ReadTimeResults } from 'reading-time';
+
+import Layout from '../../layouts/Layout.astro';
+import SubscribeForm from '../../components/SubscribeForm.astro';
+
+export interface Props {
+  article: CollectionEntry<'articles'>;
+  readingTime: ReadTimeResults;
+}
+
+export async function getStaticPaths() {
+  const allArticles = await getCollection('articles');
+
+  return allArticles.map((article) => {
+    const readingTime = getReadingTime(article.body);
+
+    return {
+      params: { articleSlug: article.slug },
+      props: { article, readingTime },
+    };
+  });
+}
+
+const { article, readingTime } = Astro.props;
+const { Content } = await article.render();
+---
+
+<Layout title={article.data.title}>
+  <article class="mb-20">
+    <div class="text-center">
+      <div class="text-5xl font-bold mb-4">{article.data.title}</div>
+      <div class="italic">{readingTime.text}</div>
+    </div>
+
+    <Content />
+  </article>
+
+  <SubscribeForm />
+</Layout>
