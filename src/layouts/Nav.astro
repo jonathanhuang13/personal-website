@@ -1,0 +1,33 @@
+---
+const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanhuang1/';
+const GITHUB_URL = 'https://github.com/jonathanhuang13';
+---
+
+<nav class="flex justify-between items-center">
+  <a href="/">
+    <button class="h-6 w-6 md:h-8 md:w-8 relative">
+      <img src={'/images/logo.svg'} />
+    </button>
+  </a>
+
+  {/* Mobile Icons */}
+  <div class="md:hidden">
+    <a class="no-underline" href={LINKEDIN_URL} target="_blank">
+      <i class="fa-brands fa-linkedin-in mr-4"></i>
+    </a>
+    <a class="no-underline" href={GITHUB_URL} target="_blank">
+      <i class="fa-brands fa-github"></i>
+    </a>
+  </div>
+
+  {/* Desktop Icons */}
+  <div class="hidden md:block">
+    <a class="no-underline" href={LINKEDIN_URL} target="_blank">
+      <i class="fa-brands fa-linkedin-in mr-4 fa-lg"></i>
+    </a>
+
+    <a class="no-underline" href={GITHUB_URL} target="_blank">
+      <i class="fa-brands fa-github fa-lg"></i>
+    </a>
+  </div>
+</nav>

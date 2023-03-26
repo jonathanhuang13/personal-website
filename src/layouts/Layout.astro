@@ -1,0 +1,70 @@
+---
+import Nav from './Nav.astro';
+import { Toaster } from 'react-hot-toast';
+
+const DARK_MODE_STYLES: object | undefined = {
+  backgroundColor: '#F1F5F9', // slate-200
+  color: '#111827', // gray-900
+};
+const LIGHT_MODE_STYLES: object | undefined = {
+  backgroundColor: '#64748B', // slate-500
+  color: '#F3F4F6', // gray-100
+};
+
+export interface Props {
+  title: string;
+  description?: string;
+  socialShareImage?: string;
+  preventIndexing?: boolean;
+}
+
+const {
+  title,
+  description = 'Founding engineer at Maven, interested in education, architecture, and programming.',
+  socialShareImage = '/images/social-share.png',
+  preventIndexing = false,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+
+    <link rel="shortcut icon" href={'/images/logo.svg'} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content="{keywords}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialShareImage} />
+
+    {
+      preventIndexing && (
+        <>
+          <meta name="robots" content="noindex" />
+          <meta name="googlebot" content="noindex" />
+        </>
+      )
+    }
+
+    <!-- Font Awesome -->
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/brands.js"
+    ></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/solid.js"
+    ></script>
+    <script
+      defer
+      src="/node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"
+    ></script>
+  </head>
+  <body class="max-w-4xl md:mx-auto prose md:prose-lg dark:prose-invert mx-4">
+    <Nav />
+    <div class="my-4 md:my-8">
+      <slot />
+    </div>
+  </body>
+  <Toaster toastOptions={{ style: LIGHT_MODE_STYLES }} client:load />
+</html>

@@ -1,0 +1,25 @@
+---
+import Typewriter from '../components/Typewriter';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Jonathan Huang">
+  <div class="flex flex-col items-center justify-center h-80 md:h-96">
+    <span class="text-4xl md:text-6xl font-semibold mb-4 md:mb-6">
+      👋 Hi, I'm{' '}
+      <Typewriter
+        className="inline-block text-slate-400 w-40 md:w-64"
+        text={'Jonathan'}
+        client:load
+      />
+    </span>
+
+    <span class="text-lg md:text-2xl max-w-prose text-center">
+      I'm a founding engineer at{' '}
+      <a class="text-sky-600" href="https://maven.com" target="_blank">
+        Maven
+      </a>
+      , and I'm interested in education 📚, architecture 🏠, and software engineering🧑‍💻.
+    </span>
+  </div>
+</Layout>
